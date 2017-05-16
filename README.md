@@ -10,6 +10,6 @@ https://www.openingstijden.nl scraper.
 
 # TO DO (KARO HELP! :D :D)
 
-1. **commands.sh** - shell script looping from 1 to 12 and passing the trailing argument to do_scrape.R, similar to wozwaardeloket script. **Now do_scrape.R is passed n=1 for the first region**
+1. **commands.sh** - shell script looping from 1 to 12 and passing the trailing argument to do_scrape.R, similar to wozwaardeloket script. **Now do_scrape.R is passed n=1:12, so that it loops through and does one region after another** 
 
 2. post-process gif images and reassign opening times in the output data frames
