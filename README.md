@@ -6,6 +6,7 @@ https://www.openingstijden.nl scraper.
 * **/broken_links** - rds objects with broken links from each region
 * **/output** - rds objects with dframes of output for each region
 * **do_scrape.R** - launching function
+* **region_links.rds** - 12 links to regions, serves as input.
 
 # TO DO (KARO HELP! :D :D)
 
