@@ -2,7 +2,7 @@
 setwd('/Users/Alex/Dropbox/openingstijden')
 region_links <- readRDS("region_links.rds")
 #n = commandArgs(trailingOnly=TRUE)
-n<-1
 source("script/exec_scrape.R")
-
-exec_scrape(n)
+for(n in seq(12)){
+exec_scrape(region_links,n=n)
+}
