@@ -37,7 +37,7 @@ if (!is.null(sesh)) {
   cities_names <- sesh %>% html_nodes(css = '#results-static > li > ul > li > a') %>% html_text()
   
   #get names and links of store kinds in each city
-  for(j in seq(length(1))){
+  for(j in seq(length(cities_links))){
     if(j==1)
     print(paste0('loop level 2, cycle #', j))
     sesh <- check_sesh(cities_links[j])
@@ -50,7 +50,7 @@ if (!is.null(sesh)) {
         html_text() %>% gsub('\\t|\\r|\\n','')
 
       #get names and links of stores within category
-      for(x in seq(length(1))){
+      for(x in seq(length(chain_city_links))){
         print(paste0('loop level 3, cycle #', x))
         sesh <- check_sesh(chain_city_links[x])
         StoreKind <- chain_city_names[x]
@@ -59,7 +59,7 @@ if (!is.null(sesh)) {
             html_attr(name ='href')
           store_names <- sesh %>% html_nodes(css = '#results-ajax > ul > li > h3 > a') %>%
             html_text %>% gsub('\\t|\\r|\\n','')
-          for(y in seq(length(1))){
+          for(y in seq(length(store_links))){
             print(paste0('loop level 4, cycle #', y))
             sesh <- check_sesh(store_links[y])
             if (!is.null(sesh)){
@@ -138,5 +138,3 @@ saveRDS(broken_links, paste0("broken_links/",n,".rds"))
 saveRDS(gifs, paste0("gif_links/",n,".rds"))
 print(paste0('Region ', region_name,' is scraped'))
 }
-
-
