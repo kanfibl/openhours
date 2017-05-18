@@ -3,6 +3,15 @@ https://www.openingstijden.nl scraper.
 
 **scrapes only main times**
 
+# Order
+
+1. do_scrape.R
+2. then combineoutput.R
+3. optional: download images
+4. maping.R to format daytimes (read total_out.rds and mapping_df.rds )
+
+# Content 
+
 * **/script** - contains the body and helper files
 * **/gif_links** - rds objects with gif links from each region
 * **/broken_links** - rds objects with broken links from each region
