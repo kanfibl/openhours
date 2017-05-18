@@ -1,4 +1,4 @@
-setwd('/Users/Alex/Dropbox/openingstijden/output')
+setwd('/output')
 files <- list.files()
 df <- data_frame()
 for(i in files){
@@ -6,7 +6,7 @@ for(i in files){
 }
 
 saveRDS(df, 'total_out.rds')
-setwd('/Users/Alex/Dropbox/openingstijden/gif_links')
+setwd('../gif_links')
 files <- list.files()
 gifs <- list()
 for(i in files){
