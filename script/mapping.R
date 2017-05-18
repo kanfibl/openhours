@@ -50,6 +50,12 @@ for(i in (10:16)){
       x2 <- paste(paste(x[5:6],collapse = ''), paste(x[7:8],collapse = ''), sep = '-')
       x <- paste(x1,x2, sep='; ')
     }
+    if(length(x)==12){
+      x1 <- paste(paste(x[1:2],collapse = ''), paste(x[3:4],collapse = ''), sep = '-')
+      x2 <- paste(paste(x[5:6],collapse = ''), paste(x[7:8],collapse = ''), sep = '-')
+      x3 <- paste(paste(x[9:10],collapse = ''), paste(x[11:12],collapse = ''), sep = '-')
+      x <- paste(x1,x2,x3, sep='; ')
+    }
     df[row,i] <- x
   }
 }
