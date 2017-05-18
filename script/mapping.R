@@ -53,7 +53,3 @@ for(i in (10:16)){
     df[row,i] <- x
   }
 }
-
-gifs<- list()
-df[77,10]
-sesh <- html_session('https://www.openingstijden.nl/Century-Autogroep/Assen/Industrieweg-46/')
