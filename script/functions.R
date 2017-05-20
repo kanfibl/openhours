@@ -9,11 +9,11 @@ check_sesh <- function(link){
 
 #get regular times function
 gettimes <- function(day,sesh){
-  selector <- paste0('#times-0 > ul > li:nth-child(',day,') > div > span > img')
+  selector <- paste0('#times-0.times-1 > ul > li:nth-child(',day,') > div > span > img')
   result <- sesh %>% html_nodes(css = selector) %>%
     html_attr(name ='src')
   if(length(result)==0) {
-    selector <- paste0('#times-0 > ul > li:nth-child(',day,') > div > span')
+    selector <- paste0('#times-0.times-1 > ul > li:nth-child(',day,') > div > span')
     result <- sesh %>% html_nodes(css = selector) %>%
       html_text()
     return(result)} else {
