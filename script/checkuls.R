@@ -2,6 +2,9 @@
 get_lis <- function(sesh, counter, case, x=1){
   result <- character()
   if (case==1) {
+    if(counter==0){
+      return(NA)
+    }
     if(counter==1){
       css <- '#section-1 > div.right > ul > li'
       check <- sesh %>% html_node(css=css) %>% html_children() %>% html_name()
@@ -16,6 +19,11 @@ get_lis <- function(sesh, counter, case, x=1){
       day <- sesh %>% html_node(css = css) %>% html_text
       time <- sesh %>% html_nodes(css = selector) %>%
         html_attr(name ='src') %>% paste(collapse=',')
+      if(time ==''){
+        selector <- paste0('#section-1 > div.right > ul > li:nth-child(',i,') > span')
+        time <- sesh %>% html_nodes(css = selector) %>%
+          html_text()
+      }
       links <- sesh %>% html_nodes(css = selector) %>%
         html_attr(name ='src')
       gifs <<- append(gifs, unlist(links))
@@ -26,6 +34,9 @@ get_lis <- function(sesh, counter, case, x=1){
   }
   else {
     child <- paste0('ul:nth-child(',x*2,')')
+    if(counter==0){
+      return(NA)
+    }
     if(counter==1){
       css <- paste0('#section-1 > div.right > ',child,' > li')
       check <- sesh %>% html_node(css=css) %>% html_children() %>% html_name()
@@ -41,6 +52,11 @@ get_lis <- function(sesh, counter, case, x=1){
       day <- sesh %>% html_node(css = css) %>% html_text
       time <- sesh %>% html_nodes(css = selector) %>%
         html_attr(name ='src') %>% paste(collapse=',')
+      if(time ==''){
+        selector <- paste0('#section-1 > div.right > ul > li:nth-child(',i,') > span')
+        time <- sesh %>% html_nodes(css = selector) %>%
+          html_text()
+      }
       links <- sesh %>% html_nodes(css = selector) %>%
         html_attr(name ='src')
       gifs <<- append(gifs, unlist(links))
